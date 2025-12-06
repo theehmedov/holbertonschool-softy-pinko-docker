@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  back-end:
+    build:
+      context: .
+      dockerfile: Dockerfile-back-end
+    image: softy-pinko-back-end:task4
+    ports:
+      - "5252:5252"
+    depends_on:
+      - front-end
+
+  front-end:
+    build:
+      context: .
+      dockerfile: Dockerfile-front-end
+    image: softy-pinko-front-end:task4
+    ports:
+      - "8080:80"
